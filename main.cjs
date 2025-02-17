@@ -113,3 +113,5 @@ app.get('/preview', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en el puerto ${PORT}`);
 });
+
+module.exports = app;
