@@ -73,5 +73,5 @@ Puedes modificar el diseño de la aplicación editando el archivo public/style.c
 - Vistas:
 Las plantillas EJS en la carpeta views se pueden personalizar para adaptar la interfaz a tus necesidades.
 
-##Licencia
+## Licencia
 Este proyecto se distribuye bajo la **licencia MIT**. Consulta el archivo LICENSE para más detalles.
