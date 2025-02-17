@@ -1,4 +1,6 @@
 # Gestor de Archivos
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Node.js Version](https://img.shields.io/badge/Node.js-14.x-blue.svg)](https://nodejs.org/)
 
 Esta aplicación es un gestor de archivos que permite subir, visualizar y descargar archivos a través de una interfaz web moderna. Se pueden subir archivos ingresando el contenido de texto o subiéndolos directamente desde el sistema. Los archivos se listan en una interfaz con un tema oscuro y acentos en rojo, similar a la estética de Google Drive. Además, al hacer clic sobre un archivo se inicia la descarga automáticamente y se ofrece la opción de previsualizarlo (mostrando la imagen o el contenido de texto, según corresponda).
 
