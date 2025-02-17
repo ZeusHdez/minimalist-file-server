@@ -8,11 +8,23 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+let server;
+
+before(function (done) {
+  // Inicia el servidor en un puerto distinto para los tests (por ejemplo, 3001)
+  server = app.listen(3001, done);
+});
+
+after(function (done) {
+  // Cierra el servidor al finalizar los tests
+  server.close(done);
+});
+
 describe('Gestor de Archivos API', function () {
   // Test de la página principal
   describe('GET /', function () {
     it('debe retornar la página principal con HTML', function (done) {
-      request(app).get('/').expect('Content-Type', /html/).expect(200, done);
+      request(server).get('/').expect('Content-Type', /html/).expect(200, done);
     });
   });
 
@@ -21,7 +33,7 @@ describe('Gestor de Archivos API', function () {
     it('debe subir un archivo de texto y retornar un mensaje de confirmación', function (done) {
       const filename = 'testfile.txt';
       const content = 'Este es un archivo de prueba.';
-      request(app)
+      request(server)
         .post('/upload')
         .send({ filename, content })
         .expect(200)
@@ -44,7 +56,7 @@ describe('Gestor de Archivos API', function () {
   describe('POST /upload-file', function () {
     it('debe subir un archivo directamente y retornar un mensaje de confirmación', function (done) {
       const filename = 'upload_test.txt';
-      request(app)
+      request(server)
         .post('/upload-file')
         .attach('file', Buffer.from('Contenido de prueba para subida directa'), filename)
         .expect(200)
@@ -68,7 +80,7 @@ describe('Gestor de Archivos API', function () {
       const filename = 'download_test.txt';
       const filePath = path.join(__dirname, '../files', filename);
       fs.writeFileSync(filePath, 'Contenido de prueba para descarga');
-      request(app)
+      request(server)
         .get('/getfile')
         .query({ filename })
         .expect(200)
@@ -88,7 +100,7 @@ describe('Gestor de Archivos API', function () {
       const content = 'Contenido de prueba para previsualización';
       const filePath = path.join(__dirname, '../files', filename);
       fs.writeFileSync(filePath, content);
-      request(app)
+      request(server)
         .get('/preview')
         .query({ filename })
         .expect(200)
@@ -105,10 +117,10 @@ describe('Gestor de Archivos API', function () {
   // Tests para casos de error cuando falta el parámetro "filename"
   describe('Casos de Error', function () {
     it('debe retornar error 400 si falta el nombre del archivo en GET /getfile', function (done) {
-      request(app).get('/getfile').expect(400, done);
+      request(server).get('/getfile').expect(400, done);
     });
     it('debe retornar error 400 si falta el nombre del archivo en GET /preview', function (done) {
-      request(app).get('/preview').expect(400, done);
+      request(server).get('/preview').expect(400, done);
     });
   });
 });

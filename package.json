@@ -5,7 +5,7 @@
   "main": "main.js",
   "type": "module",
   "scripts": {
-    "test": "mocha",
+    "test": "nyc mocha --exit",
     "start": "node --trace-uncaught main.cjs "
   },
   "author": "",
@@ -19,9 +19,22 @@
     "path": "^0.12.7",
     "url": "^0.11.4"
   },
+  "nyc": {
+    "extension": [
+      ".cjs"
+    ],
+    "exclude": [
+      "test"
+    ],
+    "reporter": [
+      "text",
+      "html"
+    ]
+  },
   "devDependencies": {
     "chai": "^5.2.0",
     "mocha": "^11.1.0",
+    "nyc": "^17.1.0",
     "supertest": "^7.0.0"
   }
 }

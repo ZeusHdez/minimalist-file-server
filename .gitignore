@@ -1,3 +1,6 @@
 node_modules/*
 files/*
 !files/test
+.nyc_output/a0021cf3-e1b6-4605-9ac9-619ec76b3f94.json
+.nyc_output/processinfo/a0021cf3-e1b6-4605-9ac9-619ec76b3f94.json
+.nyc_output/processinfo/index.json
