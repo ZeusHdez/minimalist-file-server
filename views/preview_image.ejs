@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Previsualizar: <%= filename %></title>
+    <link rel="stylesheet" href="/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Previsualizar: <%= filename %></h1>
+      <img src="/files/<%= encodeURIComponent(filename) %>" alt="<%= filename %>" />
+      <div class="preview-actions">
+        <a
+          href="/getfile?filename=<%= encodeURIComponent(filename) %>"
+          class="action-btn"
+          title="Descargar"
+        >
+          <i class="fas fa-download"></i> Descargar
+        </a>
+        <a href="/" class="back-btn"><i class="fas fa-arrow-left"></i> Volver</a>
+      </div>
+    </div>
+  </body>
+</html>

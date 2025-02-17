@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Gestor de Archivos</title>
+    <link rel="stylesheet" href="/style.css" />
+    <!-- Iconos minimalistas con Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Gestor de Archivos</h1>
+
+      <h2>Subir Archivo (Texto)</h2>
+      <form method="POST" action="/upload">
+        <label>
+          Nombre del archivo:
+          <input type="text" name="filename" required />
+        </label>
+        <label>
+          Contenido:
+          <textarea name="content" rows="8" required></textarea>
+        </label>
+        <button type="submit"><i class="fas fa-upload"></i> Subir Texto</button>
+      </form>
+
+      <h2>Subir Archivo Directamente</h2>
+      <form method="POST" action="/upload-file" enctype="multipart/form-data">
+        <input type="file" name="file" required />
+        <button type="submit"><i class="fas fa-upload"></i> Subir Archivo</button>
+      </form>
+
+      <h2>Tus Archivos</h2>
+      <ul class="file-list">
+        <% files.forEach(function(file) { %>
+        <li>
+          <span class="file-name"><%= file %></span>
+          <div class="actions">
+            <!-- Al hacer clic se inicia la descarga -->
+            <a
+              href="/getfile?filename=<%= encodeURIComponent(file) %>"
+              title="Descargar"
+              class="action-btn"
+            >
+              <i class="fas fa-download"></i>
+            </a>
+            <!-- Botón para previsualizar -->
+            <a
+              href="/preview?filename=<%= encodeURIComponent(file) %>"
+              title="Previsualizar"
+              class="action-btn"
+            >
+              <i class="fas fa-eye"></i>
+            </a>
+          </div>
+        </li>
+        <% }); %>
+      </ul>
+    </div>
+  </body>
+</html>

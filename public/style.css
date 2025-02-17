@@ -1,0 +1,181 @@
+/* public/style.css */
+
+/* Importar fuente Roboto */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #121212; /* Fondo oscuro */
+  margin: 0;
+  padding: 0;
+  color: #e0e0e0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #1e1e1e; /* Contenedor central oscuro */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+h1,
+h2 {
+  margin-top: 0;
+  color: #ff5252; /* Tonos rojos */
+}
+
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  border-bottom: 1px solid #333;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+
+/* Formularios */
+form {
+  margin-bottom: 25px;
+  padding: 20px;
+  background: #2c2c2c;
+  border-radius: 6px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+input[type='text'],
+textarea,
+input[type='file'] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #444;
+  border-radius: 4px;
+  background: #1e1e1e;
+  color: #e0e0e0;
+}
+
+/* Botones generales */
+button {
+  background: #e53935;
+  border: none;
+  padding: 12px 20px;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #d32f2f;
+}
+
+/* Lista de archivos */
+ul.file-list {
+  list-style: none;
+  padding: 0;
+}
+
+ul.file-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2c2c2c;
+  border: 1px solid #333;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.file-name {
+  font-size: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.action-btn {
+  background: #e53935;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: background 0.3s ease;
+}
+
+.action-btn:hover {
+  background: #d32f2f;
+}
+
+/* Mensaje */
+.message {
+  background: #2c2c2c;
+  padding: 20px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+/* Botón para volver */
+.back-btn {
+  background: #e53935;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: background 0.3s ease;
+}
+
+.back-btn:hover {
+  background: #d32f2f;
+}
+
+/* Acciones en previsualización */
+.preview-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+/* Pre para archivos de texto */
+pre {
+  background: #1e1e1e;
+  padding: 20px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  overflow-x: auto;
+  color: #e0e0e0;
+}
